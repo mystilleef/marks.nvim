@@ -189,7 +189,7 @@ function Mark:next_mark()
   local next = utils.search(marks, {line=line}, {line=math.huge}, comparator, self.opt.cyclic)
 
   if next then
-    a.nvim_win_set_cursor(0, { next.line, next.col })
+    a.nvim_win_set_cursor(0, { next.line, next.col - 1 })
   end
 end
 
@@ -218,7 +218,7 @@ function Mark:prev_mark()
   local prev = utils.search(marks, {line=line}, {line=-1}, comparator, self.opt.cyclic)
 
   if prev then
-    a.nvim_win_set_cursor(0, { prev.line, prev.col })
+    a.nvim_win_set_cursor(0, { prev.line, prev.col - 1 })
   end
 end
 
